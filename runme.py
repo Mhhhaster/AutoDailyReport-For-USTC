@@ -1,6 +1,9 @@
 import argparse
 from Report import Report
-
+'''
+workflow运行内容
+先把参数内容打包
+'''
 report_data = [
     ("juzhudi", "高新校区"),  # 居住地
     ("dorm_building", "2"),  # 宿舍楼
@@ -26,21 +29,22 @@ cross_campus_data = [
     ("return_college[]", "南校区"),  # 往返校区
     ("return_college[]", "北校区"),  # 往返校区
     ("return_college[]", "中校区"),  # 往返校区
-    ("reason", "上课"),  # 原因
+    ("reason", "实验室"),  # 原因
 ]
 out_school_data = [
     ("return_college[]", "蜀山区"),  # 目的地
     ("return_college[]", "包河区"),  # 目的地
     ("return_college[]", "瑶海区"),  # 目的地
     ("return_college[]", "庐阳区"),  # 目的地
-    ("reason", "玩"),  # 原因
+    ("reason", "实验室"),  # 原因
 ]
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="URC nCov auto report script.")
     parser.add_argument("stuid", help="your student number", type=str)
-    parser.add_argument("password", help="your CAS password", type=str)
+    parser.add_argument("password", help="your CAS password", type=str) #workflow中给出学号和密码(相当于命令行)
     args = parser.parse_args()
+    #调用report函数
     autorepoter = Report(stuid=args.stuid, password=args.password)
     count = 5
     while count != 0:
