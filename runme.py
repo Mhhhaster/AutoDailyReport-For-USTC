@@ -46,7 +46,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     #调用report函数
     autorepoter = Report(stuid=args.stuid, password=args.password)
-    autorepoter.report(report_data
+    autorepoter.report(report_data)
     autorepoter.upload_code()
     count = 5
     while count != 0:
