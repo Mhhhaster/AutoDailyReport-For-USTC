@@ -46,12 +46,11 @@ if __name__ == "__main__":
     args = parser.parse_args()
     #调用report函数
     autorepoter = Report(stuid=args.stuid, password=args.password)
+    autorepoter.report(report_data
+    autorepoter.upload_code()
     count = 5
     while count != 0:
-        if (autorepoter.report(report_data)
-                & autorepoter.upload_code()
-                & autorepoter.cross_campus(cross_campus_data)
-                & autorepoter.out_school(out_school_data)):
+        if autorepoter.cross_campus(cross_campus_data)&autorepoter.out_school(out_school_data):
             print("ENJOY YOUR FREEDOM! ")
             break
         print("Retry...")
